@@ -24,14 +24,14 @@ namespace PublishMessageServiceBus
             ServiceBusMessage message = new ServiceBusMessage("Pushing message for consumer 1.");
             message.PartitionKey = "Subscriber1";
             message.MessageId = Guid.NewGuid().ToString();
-            message.Subject = "consumer1"; // Added filter through portal on subject column for subscription1
+            message.Subject = "consumer1"; // Added filter through portal on subject column for subscription1, filters can be added from C# code as well.
             // send the message in topic for subscription1 
             await sender.SendMessageAsync(message);
 
             ServiceBusMessage message2 = new ServiceBusMessage("Pushing message for consumer 2.");
             message2.PartitionKey = "Subscriber2";
             message2.MessageId = Guid.NewGuid().ToString();
-            message2.Subject = "consumer2"; // Added filter through portal on subject column for subscription2
+            message2.Subject = "consumer2"; // Added filter through portal on subject column for subscription2, filters can be added from C# code as well.
             // send the message in topic for subscription2 
             await sender.SendMessageAsync(message2);
 
